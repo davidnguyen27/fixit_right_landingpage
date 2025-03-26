@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixit Right - Home Repair Services</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Fixit Right Logo" />
+          <span>Fixit Right</span>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="active">Home</a>
+          <a href="#">Shop</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="nav-icons">
+          <a href="#" class="icon"><i class="ph ph-user"></i></a>
+          <a href="#" class="icon"><i class="ph ph-magnifying-glass"></i></a>
+          <a href="#" class="icon"><i class="ph ph-heart"></i></a>
+          <a href="#" class="icon"><i class="ph ph-shopping-cart"></i></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Home Repair Service</h1>
+            <p>
+              We offer home repair, maintenance, and upgrade services with an experienced team of technicians. Quality,
+              speed, and affordable pricing guaranteed.
+            </p>
+            <button class="contact-btn" onclick="scrollToQR()">CONTACT US</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us Section -->
+      <section class="why-choose-us">
+        <h2>Why Choose Us</h2>
+        <div class="features">
+          <div class="feature-card">
+            <img src="assets/mechanist1.png" alt="Fast Service" />
+            <h3>Fast and Time-Saving Services</h3>
+          </div>
+          <div class="feature-card">
+            <img src="assets/mechanist2.png" alt="Home Problems" />
+            <h3>We Solve All Home Problems</h3>
+          </div>
+          <div class="feature-card">
+            <img src="assets/mechanist3.png" alt="Service Warranty" />
+            <h3>Service Warranty</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Products Section -->
+      <section class="our-products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="assets/tulanh.png" alt="Fridge" />
+            <h3>Fridge</h3>
+            <p>Electric Repair</p>
+            <button class="contact-now" onclick="scrollToQR()">Contact Now</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/maylanh.png" alt="Air Condition" />
+            <h3>Air Condition</h3>
+            <p>Electric Repair</p>
+            <button class="contact-now" onclick="scrollToQR()">Contact Now</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/maygiat.png" alt="Washing Machine" />
+            <h3>Washing Machine</h3>
+            <p>Electric Repair</p>
+            <button class="contact-now" onclick="scrollToQR()">Contact Now</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/lonuong.png" alt="Conventional Toaster" />
+            <h3>Conventional Toaster</h3>
+            <p>Electric Repair</p>
+            <button class="contact-now" onclick="scrollToQR()">Contact Now</button>
+          </div>
+        </div>
+        <button class="show-more">Show More</button>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="cta" id="qr-section">
+        <div class="cta-content">
+          <h2>Download Fixit Right App</h2>
+          <p>Scan QR code to download the app and experience smart home repair services</p>
+          <div class="qr-container">
+            <div class="qr-code"></div>
+            <div class="app-badges">
+              <a href="#" class="app-badge">
+                <i class="ph ph-apple-logo"></i>
+                <span>App Store</span>
+              </a>
+              <a href="#" class="app-badge">
+                <i class="ph ph-google-play-logo"></i>
+                <span>Google Play</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="app-preview">
+          <img src="assets/app_review.png" alt="App Preview" />
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="assets/app_logo_white.png" alt="Fixit Right Logo" />
+          <p>Professional Home Repair Services Solving All Your Home Issues</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-section">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="#">Payment Options</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">Privacy Policies</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <div class="newsletter">
+              <input type="email" placeholder="Enter Your Email Address" />
+              <button class="subscribe-btn">SUBSCRIBE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>2025 fixitright. All rights reserved</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

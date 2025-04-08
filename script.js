@@ -1,10 +1,13 @@
 // Tạo QR code sử dụng thư viện qrcode.js
 function generateQRCode() {
-  // URL để tải APK
-  const apkUrl = "assets/fixitright.apk";
+  const apkUrl = "assets/app-release.apk"; // URL đến file APK
 
-  // Tạo QR code
   const qrContainer = document.querySelector(".qr-code");
+  if (!qrContainer) return;
+
+  // Xoá QR cũ nếu có
+  qrContainer.innerHTML = "";
+
   new QRCode(qrContainer, {
     text: apkUrl,
     width: 200,
@@ -14,7 +17,7 @@ function generateQRCode() {
     correctLevel: QRCode.CorrectLevel.H,
   });
 
-  // Thêm sự kiện click vào QR code
+  // Bấm vào QR code cũng tải
   qrContainer.addEventListener("click", () => {
     downloadAPK(apkUrl);
   });
@@ -24,72 +27,68 @@ function generateQRCode() {
 function downloadAPK(url) {
   const link = document.createElement("a");
   link.href = url;
-  link.download = "fixitright.apk";
+  link.download = "app-release.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
 
-// Hàm cuộn đến phần QR
+// Hàm cuộn đến QR section
 function scrollToQR() {
   const qrSection = document.getElementById("qr-section");
-  qrSection.scrollIntoView({ behavior: "smooth" });
+  if (qrSection) {
+    qrSection.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
-// Biến toàn cục để lưu trạng thái carousel
+// Carousel logic (nếu có)
 let slideIndex = 0;
 
-// Hàm chuyển slide
 function changeSlide(n) {
   showSlide((slideIndex += n));
 }
 
-// Hàm hiển thị slide hiện tại
 function currentSlide(n) {
   showSlide((slideIndex = n));
 }
 
-// Hàm xử lý hiển thị slide
 function showSlide(n) {
   const slides = document.querySelectorAll(".carousel-image");
   const dots = document.querySelectorAll(".carousel-dots .dot");
+  if (!slides.length) return;
 
-  // Xử lý trường hợp vượt quá giới hạn
   if (n >= slides.length) slideIndex = 0;
   if (n < 0) slideIndex = slides.length - 1;
 
-  // Ẩn tất cả slides với hiệu ứng phù hợp
   slides.forEach((slide, index) => {
     slide.classList.remove("active");
-
-    // Hiệu ứng di chuyển tùy theo hướng
-    if (index < slideIndex) {
-      slide.style.transform = "translateX(-100%)";
-    } else if (index > slideIndex) {
-      slide.style.transform = "translateX(100%)";
-    }
+    slide.style.transform = index < slideIndex ? "translateX(-100%)" : "translateX(100%)";
   });
 
-  // Loại bỏ class active từ tất cả các dots
-  dots.forEach((dot) => {
-    dot.classList.remove("active");
-  });
+  dots.forEach((dot) => dot.classList.remove("active"));
 
-  // Hiển thị slide hiện tại
   slides[slideIndex].classList.add("active");
   slides[slideIndex].style.transform = "translateX(0)";
   dots[slideIndex].classList.add("active");
 }
 
-// Tự động chạy carousel
 function autoSlide() {
   changeSlide(1);
-  setTimeout(autoSlide, 5000); // Chuyển slide mỗi 5 giây
+  setTimeout(autoSlide, 5000);
 }
 
-// Chạy các hàm khi trang web được tải
+// Init khi trang load
 document.addEventListener("DOMContentLoaded", function () {
   generateQRCode();
   showSlide(slideIndex);
-  setTimeout(autoSlide, 5000); // Bắt đầu tự động chuyển slide sau 5 giây
+  setTimeout(autoSlide, 5000);
+
+  // Gán sự kiện cho nút Google Play
+  const downloadBtn = document.getElementById("download-apk-btn");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      downloadAPK("assets/app-release.apk");
+    });
+  }
 });
